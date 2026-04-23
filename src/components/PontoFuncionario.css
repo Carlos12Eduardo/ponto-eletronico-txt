@@ -1,0 +1,8 @@
+th{
+    border: 1px solid black;
+    padding: 5px 10px;
+}
+.tabela-de-pontos{
+    max-height: 400px;
+    overflow-y: scroll;
+}

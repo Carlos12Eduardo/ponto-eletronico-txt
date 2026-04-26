@@ -10,15 +10,11 @@ function App() {
     const handleFileSubmit = (refInputFile) => {
 
         const file = refInputFile.files[0];
-        // console.log("dados do arquivo", file.type);
-        // console.log(file.type == "text/plan")
         if (file && file.type == "text/plain") {
             const reader = new FileReader();
 
             reader.onload = (e) => {
                 const linhas = e.target.result.split("\n");
-                // console.log(linhas[1])
-                // setConteudo(e.target.result);
                 linhas.map(linha => {
                     const dia = linha.slice(10, 18);
                     const registro = {

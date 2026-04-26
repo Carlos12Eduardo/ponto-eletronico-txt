@@ -34,12 +34,27 @@ function App() {
         }
     }
     return (
-        <>
-            <label htmlFor="file">Importar arquivo txt</label>
-            <input type="file" name="file" id="file" ref={refInputFile} />
-            <input type="button" value="Enviar" onClick={() => handleFileSubmit(refInputFile.current)} />
-            <p>{conteudo}</p>
-        </>
+        <div className="container">
+            <header>Conteúdo do Header aqui</header>
+            <aside>
+                <label htmlFor="file">Importar arquivo txt</label>
+                <input type="file" name="file" id="file" ref={refInputFile} />
+                <input type="button" value="Enviar" onClick={() => handleFileSubmit(refInputFile.current)} />
+                <select name="matricula-funcionario" id="matricula-funcionario">
+                    <option value="">Selecione uma matricula</option>
+                    <option value="teste1">teste1</option>
+                    <option value="teste2">teste2</option>
+                    <option value="teste3">teste3</option>
+                </select>
+                <a href="">Exportar CSV</a>
+            </aside>
+            <main>
+                <p>{conteudo}</p>
+            </main>
+            <footer>
+                Conteúdo footer vai aqui
+            </footer>
+        </div>
     )
 }
 

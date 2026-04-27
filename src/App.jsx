@@ -70,6 +70,7 @@ function App() {
                 });
             }
             reader.readAsText(file);
+            console.log(JSON.stringify(dados));
         }
         else {
             alert("Nenhum arquivo .txt selecionado");
@@ -88,7 +89,7 @@ function App() {
                     <option value="teste2">teste2</option>
                     <option value="teste3">teste3</option>
                 </select>
-                <a href="">Exportar CSV</a>
+                <a href="#" onClick={()=> alert("Ainda em desenvolvimento")}>Exportar CSV</a>
             </aside>
             <main>
                 <p>{conteudo}</p>

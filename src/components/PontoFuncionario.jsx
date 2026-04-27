@@ -16,15 +16,15 @@ export const PontoFuncionario = ({pontos}) => {
             </thead>
             <tbody>
                 {
-                    pontos.map(ponto=>{
+                    pontos.dias.map(ponto=>{
                         return(
                             <tr key={ponto.dia}>
                                 <th>{ponto.dia}</th>
-                                <th>{ponto.diaDaSemana}</th>
+                                {/* <th>{ponto.diaDaSemana}</th> */}
                                 {
-                                    ponto.horas.map((hora,index) => {
+                                    ponto.horarios.map(horario => {
                                         return(
-                                            <th key={index}>{hora}</th>
+                                            <th key={horario.id}>{horario.hora}</th>
                                         )
                                     })
                                 }

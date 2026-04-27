@@ -4,8 +4,9 @@ import './App.css'
 function App() {
     const refInputFile = useRef();
     const [conteudo, setConteudo] = useState("")
-    const registros = [];
-
+    const dados = {
+        "funcionarios": []
+    }
 
     const handleFileSubmit = (refInputFile) => {
 
@@ -16,16 +17,57 @@ function App() {
             reader.onload = (e) => {
                 const linhas = e.target.result.split("\n");
                 linhas.map(linha => {
-                    const dia = linha.slice(10, 18);
                     const registro = {
                         id: linha.slice(0, 10),
-                        dia: dia,
+                        dia: linha.slice(10, 18),
                         hora: linha.slice(18, 20) + ":" + linha.slice(20, 22),
-                        nis: linha.slice(22, 34)
+                        matricula: linha.slice(22, 34)
                     }
-                    registros.push(registro);
+                    const [funcionario] = dados.funcionarios.filter(funcionario => funcionario.matricula == registro.matricula);
+                    if (!funcionario) {
+                        dados.funcionarios.push(
+                            {
+                                "matricula": registro.matricula,
+                                "pontos": {
+                                    "dias": [
+                                        {
+                                            "dia": registro.dia,
+                                            "horarios": [
+                                                {
+                                                    "id": registro.id,
+                                                    "hora": registro.hora
+
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        );
+                    } else {
+                        const [dia] = funcionario.pontos.dias.filter(data => data.dia === registro.dia);
+                        if (!dia) {
+                            funcionario.pontos.dias.push(
+                                {
+                                    "dia": registro.dia,
+                                    "horarios": [
+                                        {
+                                            "id": registro.id,
+                                            "hora": registro.hora
+                                        }
+                                    ]
+                                }
+                            );
+                        } else {
+                            dia.horarios.push(
+                                {
+                                    "id": registro.id,
+                                    "hora": registro.hora
+                                }
+                            );
+                        }
+                    }
                 });
-                console.log(registros[0]);
             }
             reader.readAsText(file);
         }

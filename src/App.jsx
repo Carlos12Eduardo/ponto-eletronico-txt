@@ -1,9 +1,11 @@
 import { useRef, useState } from 'react'
 import './App.css'
+import ListaFuncionarios from './components/ListaFuncionarios';
 
 function App() {
     const refInputFile = useRef();
-    const [conteudo, setConteudo] = useState("")
+    const [conteudo, setConteudo] = useState("");
+    const [funcionarioSelecionado, setFuncionarioSelecionado] = useState("");
     const dados = {
         "funcionarios": []
     }
@@ -36,7 +38,6 @@ function App() {
                                                 {
                                                     "id": registro.id,
                                                     "hora": registro.hora
-
                                                 }
                                             ]
                                         }
@@ -83,13 +84,12 @@ function App() {
                 <label htmlFor="file">Importar arquivo txt</label>
                 <input type="file" name="file" id="file" ref={refInputFile} />
                 <input type="button" value="Enviar" onClick={() => handleFileSubmit(refInputFile.current)} />
-                <select name="matricula-funcionario" id="matricula-funcionario">
-                    <option value="">Selecione uma matricula</option>
-                    <option value="teste1">teste1</option>
-                    <option value="teste2">teste2</option>
-                    <option value="teste3">teste3</option>
-                </select>
-                <a href="#" onClick={()=> alert("Ainda em desenvolvimento")}>Exportar CSV</a>
+                <ListaFuncionarios
+                    funcionarios={[]}
+                    funcionarioSelecionado={funcionarioSelecionado}
+                    setFuncionarioSelecionado={setFuncionarioSelecionado}
+                />
+                <a href="#" onClick={() => alert("Ainda em desenvolvimento")}>Exportar CSV</a>
             </aside>
             <main>
                 <p>{conteudo}</p>

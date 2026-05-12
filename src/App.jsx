@@ -69,11 +69,9 @@ function App() {
                         }
                     }
                 });
+                setConteudo(dados);
             }
             reader.readAsText(file);
-            // console.log(JSON.stringify(dados));
-            setConteudo(dados);
-            console.log(conteudo);
         }
         else {
             alert("Nenhum arquivo .txt selecionado");

@@ -3,16 +3,16 @@ import './App.css'
 import ListaFuncionarios from './components/ListaFuncionarios';
 
 function App() {
-    const refInputFile = useRef();
-    const [conteudo, setConteudo] = useState("");
+    const [inputFile, setInputFile] = useState(null);
+    const [conteudo, setConteudo] = useState({"funcionarios": []});
     const [funcionarioSelecionado, setFuncionarioSelecionado] = useState("");
     const dados = {
         "funcionarios": []
     }
 
-    const handleFileSubmit = (refInputFile) => {
+    const handleFileSubmit = (inputFile) => {
 
-        const file = refInputFile.files[0];
+        const file = inputFile;
         if (file && file.type == "text/plain") {
             const reader = new FileReader();
 
@@ -71,7 +71,9 @@ function App() {
                 });
             }
             reader.readAsText(file);
-            console.log(JSON.stringify(dados));
+            // console.log(JSON.stringify(dados));
+            setConteudo(dados);
+            console.log(conteudo);
         }
         else {
             alert("Nenhum arquivo .txt selecionado");
@@ -82,17 +84,17 @@ function App() {
             <header>Conteúdo do Header aqui</header>
             <aside>
                 <label htmlFor="file">Importar arquivo txt</label>
-                <input type="file" name="file" id="file" ref={refInputFile} />
-                <input type="button" value="Enviar" onClick={() => handleFileSubmit(refInputFile.current)} />
+                <input type="file" name="file" id="file" onChange={(e) => setInputFile(e.target.files[0])} />
+                <input type="button" value="Enviar" onClick={() => handleFileSubmit(inputFile)} />
                 <ListaFuncionarios
-                    funcionarios={[]}
+                    funcionarios={conteudo.funcionarios}
                     funcionarioSelecionado={funcionarioSelecionado}
                     setFuncionarioSelecionado={setFuncionarioSelecionado}
                 />
                 <a href="#" onClick={() => alert("Ainda em desenvolvimento")}>Exportar CSV</a>
             </aside>
             <main>
-                <p>{conteudo}</p>
+                {/* <p>{conteudo}</p> */}
             </main>
             <footer>
                 Conteúdo footer vai aqui

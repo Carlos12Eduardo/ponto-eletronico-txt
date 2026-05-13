@@ -1,10 +1,11 @@
 import { useRef, useState } from 'react'
 import './App.css'
 import ListaFuncionarios from './components/ListaFuncionarios';
+import PontoFuncionario from './components/PontoFuncionario'
 
 function App() {
     const [inputFile, setInputFile] = useState(null);
-    const [conteudo, setConteudo] = useState({"funcionarios": []});
+    const [conteudo, setConteudo] = useState({ "funcionarios": [] });
     const [funcionarioSelecionado, setFuncionarioSelecionado] = useState("");
     const dados = {
         "funcionarios": []
@@ -92,7 +93,13 @@ function App() {
                 <a href="#" onClick={() => alert("Ainda em desenvolvimento")}>Exportar CSV</a>
             </aside>
             <main>
-                {/* <p>{conteudo}</p> */}
+                {funcionarioSelecionado !== "" &&
+                    <PontoFuncionario
+                        pontos={
+                            conteudo.funcionarios.find(funcionario => funcionario.matricula == funcionarioSelecionado).pontos
+                        }
+                    />
+                }
             </main>
             <footer>
                 Conteúdo footer vai aqui

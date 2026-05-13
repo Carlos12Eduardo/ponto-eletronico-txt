@@ -1,6 +1,6 @@
 import './PontoFuncionario.css'
 
-export const PontoFuncionario = ({pontos}) => {
+const PontoFuncionario = ({pontos}) => {
     return (
         <div className="tabela-de-pontos">
         <table>
@@ -37,3 +37,5 @@ export const PontoFuncionario = ({pontos}) => {
         </div>
     );
 }
+
+export default PontoFuncionario;

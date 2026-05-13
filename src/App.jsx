@@ -22,7 +22,7 @@ function App() {
                 linhas.map(linha => {
                     const registro = {
                         id: linha.slice(0, 10),
-                        dia: linha.slice(10, 18),
+                        dia: linha.slice(10, 12) + "/" + linha.slice(12,14) + "/" + linha.slice(14,18),
                         hora: linha.slice(18, 20) + ":" + linha.slice(20, 22),
                         matricula: linha.slice(22, 34)
                     }

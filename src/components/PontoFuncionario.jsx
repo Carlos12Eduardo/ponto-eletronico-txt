@@ -1,3 +1,4 @@
+import obterDiaDaSemana from '../utils/obterDiaDaSemana';
 import './PontoFuncionario.css'
 
 const PontoFuncionario = ({pontos}) => {
@@ -20,7 +21,7 @@ const PontoFuncionario = ({pontos}) => {
                         return(
                             <tr key={ponto.dia}>
                                 <th>{ponto.dia}</th>
-                                {/* <th>{ponto.diaDaSemana}</th> */}
+                                <th>{obterDiaDaSemana(ponto.dia)}</th>
                                 {
                                     ponto.horarios.map(horario => {
                                         return(

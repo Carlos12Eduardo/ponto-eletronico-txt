@@ -8,9 +8,6 @@ function App() {
     const [inputFile, setInputFile] = useState(null);
     const [conteudo, setConteudo] = useState({ "funcionarios": [] });
     const [funcionarioSelecionado, setFuncionarioSelecionado] = useState("");
-    const dados = {
-        "funcionarios": []
-    }
 
     const handleFileSubmit = async (inputFile) => {
         const response = await converterArquivoPontoTxtParaJson(inputFile) || { "funcionarios": [] };

@@ -10,8 +10,16 @@ function App() {
     const [funcionarioSelecionado, setFuncionarioSelecionado] = useState("");
 
     const handleFileSubmit = async (inputFile) => {
-        const response = await converterArquivoPontoTxtParaJson(inputFile) || { "funcionarios": [] };
-        setConteudo(response);
+        try{
+            const response = await converterArquivoPontoTxtParaJson(inputFile);
+            if(response){
+                setConteudo(response);
+                alert('Arquivo enviado com sucesso!');
+            }
+        }
+        catch(error){
+            alert("ocorreu um erro ao tentar ler o arquivo txt.");
+        }
     }
 
     return (

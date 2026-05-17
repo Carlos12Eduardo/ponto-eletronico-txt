@@ -16,9 +16,8 @@ function App() {
                 setConteudo(response);
                 alert('Arquivo enviado com sucesso!');
             }
-        }
-        catch(error){
-            alert("ocorreu um erro ao tentar ler o arquivo txt.");
+        } catch(error){
+            alert(`ocorreu um erro ao tentar ler o arquivo txt. ${error}`);
         }
     }
 

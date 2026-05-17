@@ -36,6 +36,7 @@ function App() {
                 <a href="#" onClick={() => alert("Ainda em desenvolvimento")}>Exportar CSV</a>
             </aside>
             <main>
+                <h3>Tabela de pontos registrados</h3>
                 {funcionarioSelecionado !== "" &&
                     <PontoFuncionario
                         pontos={

@@ -1,3 +1,7 @@
+function eArquivoDePontoValido(array){
+    return array.every(element => element.length === 34);
+}
+
 function converterArquivoPontoTxtParaJson(inputFile) {
     const dados = {
         "funcionarios": []
@@ -7,7 +11,12 @@ function converterArquivoPontoTxtParaJson(inputFile) {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.onload = (e) => {
-                const linhas = e.target.result.split("\n");
+                const linhas = e.target.result.split("\r\n");
+                if(!eArquivoDePontoValido(linhas)){
+                    reject("Não é arquivo válido!");
+                    return;
+                }
+
                 linhas.map(linha => {
                     const registro = {
                         id: linha.slice(0, 10),

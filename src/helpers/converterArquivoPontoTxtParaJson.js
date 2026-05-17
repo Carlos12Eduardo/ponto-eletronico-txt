@@ -1,4 +1,4 @@
-function eArquivoDePontoValido(array){
+function eArquivoDePontoValido(array) {
     return array.every(element => element.length === 34);
 }
 
@@ -7,12 +7,12 @@ function converterArquivoPontoTxtParaJson(inputFile) {
         "funcionarios": []
     }
     const file = inputFile;
-    if (file && file.type == "text/plain") {
-        return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+        if (file && file.type == "text/plain") {
             const reader = new FileReader();
             reader.onload = (e) => {
                 const linhas = e.target.result.split("\r\n");
-                if(!eArquivoDePontoValido(linhas)){
+                if (!eArquivoDePontoValido(linhas)) {
                     reject("Não é arquivo válido!");
                     return;
                 }
@@ -72,12 +72,12 @@ function converterArquivoPontoTxtParaJson(inputFile) {
             }
             reader.readAsText(file);
 
-        });
-    }
 
-    else {
-        alert("Nenhum arquivo .txt selecionado");
-    }
+        }
+        else {
+            reject("Nenhum arquivo .txt selecionado.");
+        }
+    });
 }
 
 export default converterArquivoPontoTxtParaJson;

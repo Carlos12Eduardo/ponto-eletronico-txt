@@ -10,19 +10,30 @@
 }
 header{
     grid-area: header;
-    background-color: yellow;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    border: solid black 1px;
+    background-color: var(--color-primary);
 }
 aside{
     grid-area: aside;
     display: flex;
     flex-direction: column;
-    background-color: blue;
+    border: solid black 1px;
+    background-color: var(--color-primary);
 }
 main{
+    border: solid black 1px;
     grid-area: main;
-    background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
 }
 footer{
+    border: solid black 1px;
     grid-area: footer;
-    background-color: green;
+    background-color: var(--color-primary);
 }

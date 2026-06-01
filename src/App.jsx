@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import './styles/variables.css'
 import './App.css'
 import ListaFuncionarios from './components/ListaFuncionarios';
 import PontoFuncionario from './components/PontoFuncionario'
@@ -23,7 +24,13 @@ function App() {
 
     return (
         <div className="container">
-            <header>Conteúdo do Header aqui</header>
+            <header>
+                <a href="#">
+                    <img src="./src/assets/images/more.png" width="20px" height="20px"/>
+                </a>
+                <h2>Ponto Eletrônico</h2>
+                <a href="#"> alterar tema</a>
+            </header>
             <aside>
                 <label htmlFor="file">Importar arquivo txt</label>
                 <input type="file" name="file" id="file" onChange={(e) => setInputFile(e.target.files[0])} />

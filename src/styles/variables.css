@@ -1,9 +1,12 @@
 :root{
     --bg-primary: #f8fafc;
-    --color-primary: #2563EB;
-    --color-primary-hover: #1D4ED8;
-    --text-primary: #111827;
-    --text-second: #6B7280;
+    --color-primary: #ffffff;
+    --color-primary-hover: #334155;
+    --color-header: #1e293b;
+    --color-aside:#e2e8f0;
+    --color-footer:#334155;
+    --text-primary: #ffffff;
+    --text-second: #1e293b;
     --border: #E5E7EB;
     --color-sucess: #16A34A;
     --color-error: #DC2626;

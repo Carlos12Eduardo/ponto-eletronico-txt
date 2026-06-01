@@ -26,7 +26,7 @@ function App() {
         <div className="container">
             <header>
                 <a href="#">
-                    <img src="./assets/images/more.png" width="20px" height="20px"/>
+                    <img src="./src/assets/images/more.png" width="20px" height="20px"/>
                 </a>
                 <h2>Ponto Eletrônico</h2>
                 <a href="#"> alterar tema</a>

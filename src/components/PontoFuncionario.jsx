@@ -1,4 +1,5 @@
 import obterDiaDaSemana from '../utils/obterDiaDaSemana';
+import '../styles/variables.css'
 import './PontoFuncionario.css'
 
 const PontoFuncionario = ({pontos}) => {

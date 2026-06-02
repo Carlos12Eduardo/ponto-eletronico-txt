@@ -5,4 +5,5 @@ th{
 .tabela-de-pontos{
     max-height: 400px;
     overflow-y: scroll;
+    color: var(--text-second)
 }

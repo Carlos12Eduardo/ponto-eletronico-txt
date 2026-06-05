@@ -10,6 +10,12 @@ body{
         "header header"
         "aside main"
         "footer footer";
+    transition: 0.3s ease;
+}
+
+.container.aside-desativado{
+    grid-template-columns: 0px 1fr;
+    transition: 0.3s ease;
 }
 
 header,
@@ -22,14 +28,17 @@ footer {
 header {
     grid-area: header;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: end;
     background-color: var(--color-header);
 }
-
+header h2{
+    padding: 0 20px;
+}
 aside {
     grid-area: aside;
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     background-color: var(--color-aside);
     color: var(--text-second);
@@ -64,4 +73,9 @@ footer {
 
 .input-field input {
     width: 100%;
+}
+#btn-menu-hamburguer{
+    background: none;
+    border: none;
+    cursor: pointer;
 }

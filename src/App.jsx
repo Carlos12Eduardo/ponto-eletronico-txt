@@ -9,6 +9,7 @@ function App() {
     const [inputFile, setInputFile] = useState(null);
     const [conteudo, setConteudo] = useState({ "funcionarios": [] });
     const [funcionarioSelecionado, setFuncionarioSelecionado] = useState("");
+    const [menuHamburguerOpen, setMenuHamburguerOpen] = useState(true);
 
     const handleFileSubmit = async (inputFile) => {
         try {
@@ -23,15 +24,14 @@ function App() {
     }
 
     return (
-        <div className="container">
+        <div className={`container ${menuHamburguerOpen ? "": "aside-desativado"}`}>
             <header>
-                <a href="#">
+                <button id="btn-menu-hamburguer" onClick={()=>{setMenuHamburguerOpen(!menuHamburguerOpen); console.log(menuHamburguerOpen)}}>
                     <img src="./src/assets/images/more.png" width="20px" height="20px" />
-                </a>
+                </button>
                 <h2>Ponto Eletrônico</h2>
-                <a href="#"> alterar tema</a>
             </header>
-            <aside>
+            <aside className={menuHamburguerOpen ? "aberto" : ""}>
                 <div className="input-field">
                     <label htmlFor="file">Importar arquivo txt</label>
                     <input type="file" name="file" id="file" onChange={(e) => setInputFile(e.target.files[0])} />
@@ -47,6 +47,7 @@ function App() {
                 <div className="input-field">
                     <a href="#" onClick={() => alert("Ainda em desenvolvimento")}>Exportar CSV</a>
                 </div>
+
             </aside>
             <main>
                 <h3>Tabela de pontos registrados</h3>
@@ -59,7 +60,7 @@ function App() {
                 }
             </main>
             <footer>
-                Conteúdo footer vai aqui
+                Leitor de ponto eletrônico
             </footer>
         </div>
     )

@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import imgMenuHamburguer from './assets/images/more.png'
 import './styles/variables.css'
 import './App.css'
 import ListaFuncionarios from './components/ListaFuncionarios';
@@ -27,7 +28,7 @@ function App() {
         <div className={`container ${menuHamburguerOpen ? "": "aside-desativado"}`}>
             <header>
                 <button id="btn-menu-hamburguer" onClick={()=>{setMenuHamburguerOpen(!menuHamburguerOpen); console.log(menuHamburguerOpen)}}>
-                    <img src="./src/assets/images/more.png" width="20px" height="20px" />
+                    <img src={imgMenuHamburguer} width="20px" height="20px" />
                 </button>
                 <h2>Ponto Eletrônico</h2>
             </header>
